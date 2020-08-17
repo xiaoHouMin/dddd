@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 600px;
+            margin: 100px auto;
+            /* background-color: yellowgreen; */
+        }
+
+        .box input {
+            float: left;
+            width: 250px;
+            height: 20px;
+            outline: none;
+            border: 2px solid rgb(102, 102, 102);
+            color: rgb(102, 102, 102);
+        }
+
+        .box .message {
+            float: left;
+            margin: 4px 0 2px 10px;
+            font-size: 14px;
+            color: rgb(102, 102, 102);
+        }
+
+        .box .wrong {
+            color: red;
+        }
+
+        .box .right {
+            color: rgb(0, 255, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" class="ipt" value="">
+        <p class="message">请输入6~16位密码</p>
+    </div>
+
+    <script>
+        // 1.获取元素
+        var ipt = document.querySelector('.ipt');
+        var message = document.querySelector('.message');
+        // 2.注册事件 失去焦点
+        ipt.onblur = function () {
+            if (ipt.value.length < 6 || ipt.value.length > 16) {
+                console.log('错误');
+                message.className = 'message wrong';
+                message.innerHTML = '请确认您输入的密码为6~16位';
+            } else {
+                message.className = 'message right';
+                message.innerHTML = '您输入的密码正确';
+            }
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
